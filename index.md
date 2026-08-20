@@ -1,5 +1,3 @@
-# Privacy Policy for SentinelNet Shield
-
 **Effective Date:** August 20, 2026
 
 ## Introduction and Single Purpose
