@@ -1,62 +1,44 @@
-**Effective Date:** August 26, 2026
+**Effective Date:** September 2, 2026
 
-## Introduction
-This Privacy Policy governs the collection, handling, storage, and sharing of user data by the **SentinelNet Shield** Chrome Extension. 
+**Single Purpose Statement:** SentinelNet Shield provides AI-powered checkout protection against e-commerce fraud and phishing. It achieves this by analyzing transaction risks and providing a contextual AI assistant when explicitly invoked by the user. 
 
-**Single Purpose Statement:** SentinelNet Shield is designed exclusively to protect users during online shopping by analyzing transaction risks, evaluating checkout links for fraud, and providing an AI-driven webpage context assistant. All data collection and processing are strictly limited to providing and improving this single security purpose.
+## 1. User Data Collection
+In version 1.0.2, we have strictly limited our access by requesting only the `activeTab` and `scripting` permissions. We collect the following specific data types as defined by the Chrome Web Store:
+*   **Website Content:** When you actively open the extension, we temporarily read the visible text (DOM) of your active checkout tab using the `activeTab` and `scripting` permissions to provide context for the AI.
+*   **Authentication Information:** We collect the username and passcode you use to log into the extension.
+*   **Personal Communications:** We collect the chat prompts you type into the AI chatbot.
+*   **Transaction Parameters:** We collect anonymized structural page data (e.g., scaled time, amounts, PCA vectors).
 
----
+*(Note: We no longer collect Web History or background tab URLs, as global host permissions and tab tracking have been removed.)*
 
-## 1. Data Collection
-To provide real-time e-commerce protection, we request the narrowest Chrome permissions necessary (`activeTab`, `scripting`, `tabs`). We only collect data when you actively interact with the extension:
+## 2. User Data Handling
+Your data is strictly handled to support our single purpose:
+*   **Authentication Information** is used solely to log you into your SentinelNet Shield account.
+*   **Website Content and Personal Communications** are processed through our AI providers to generate fraud warnings, contract breakdowns, and contextual answers.
+*   **Transaction Parameters** are processed through our Random Forest ML model to calculate real-time fraud risk scores.
 
-* **Website Content:** When you actively trigger a scan or ask the AI chatbot a question, we extract the visible webpage text (DOM) of that specific active checkout tab to provide contextual AI safety advice.
-* **User Activity:** We temporarily read the URL of your active tab and the specific text prompts you type into our safety chatbot to detect phishing and generate insights.
-* **Transaction Parameters:** We securely extract structural, non-identifying transaction data (such as scaled time, scaled amounts, and anonymized PCA vectors V1-V28) present on the page.
+## 3. User Data Storage
+We minimize data storage to protect your privacy:
+*   **Backend Storage:** Authentication Information and user account preferences are securely stored on our encrypted Django backend servers. 
+*   **No Local Chrome Storage:** We do not utilize the Chrome `storage` API to store data locally on your device.
+*   **Ephemeral Processing:** Website Content, Personal Communications, and Transaction Parameters are processed in real-time and immediately discarded. They are never permanently stored on our servers.
+*   **Retention:** Account data is retained only while you maintain an active account.
 
-*Note: We do not track, collect, or monitor your general Web History or background browsing activity.*
+## 4. User Data Sharing
+We do not process AI queries locally. To function, we share specific data with secure, verified third parties:
+*   **Google Gemini API:** Receives Website Content and Personal Communications to power the chatbot.
+*   **Mistral AI API:** Receives Website Content to generate purchase insights.
+*   **Tavily API:** Receives the active page URL (only when the extension is manually invoked) for live merchant reputation scraping.
 
-## 2. Data Handling
-Your data is handled strictly to operate the extension’s core security features:
+## 5. Limited Use and Prohibition of Sale
+We do not sell, rent, or trade your data to third parties, advertising networks, or data brokers. The extension's use and transfer of information received from Google APIs to any other app will strictly adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.
 
-* **Fraud Detection:** Transaction parameters and URLs are actively processed through our remote Random Forest machine learning model to generate an instant fraud risk percentage.
-* **Contextual AI Assistance:** The active webpage’s text and your chat inputs are processed to generate personalized chatbot responses, purchase insights, and contract breakdowns.
-
-## 3. Data Storage
-We adhere to strict data minimization and retention policies:
-
-* **No Local Browser Storage:** This extension does not request or utilize the Chrome `storage` API permission. No data is stored locally on your device by the extension.
-* **Ephemeral Processing:** Webpage content (DOM text), URLs, and transaction parameters are processed in real-time. They are discarded immediately after the AI response or risk score is generated and are **not** stored permanently on our servers.
-* **Backend Storage:** User accounts, authentication states, and session preferences are securely stored on our dedicated, encrypted Django backend servers.
-* **Data Retention:** Your account data is retained only for as long as you maintain an active account with SentinelNet Shield.
-
-## 4. Data Sharing
-To power our security features, we securely transmit necessary prompt data, specific webpage text, and URLs to the following verified third-party providers via encrypted HTTPS:
-
-* **Google Gemini API:** Processes webpage text and user prompts to power the context-aware AI chatbot.
-* **Mistral AI API:** Processes transaction context to generate AI-based purchase insights.
-* **Tavily API:** Processes checkout URLs to perform live web scraping and verify merchant reputation.
-
-Data is shared with these services solely to return the requested analytics to you.
-
-## 5. Limited Use Disclosure & Prohibition of Sale
-We completely prohibit the sale or misuse of user data.
-
-* **No Sale of Data:** We do not transfer, use, or sell your personal data to third parties, advertising platforms, data brokers, or information resellers. Your data is never used to determine credit-worthiness or for lending purposes.
-* **Limited Use:** The extension's use and transfer of information received from Google APIs to any other app will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.
-
-## 6. User Access and Data Deletion
-You have the right to access, correct, or delete your data at any time.
-
-* **How to delete your data:** You may request the total deletion of your account and associated session data by emailing us at the contact address below.
-* Deleting your data will permanently remove your account and configuration preferences from our secure backend infrastructure.
+## 6. Data Access and Deletion
+You may request the total deletion of your account, Authentication Information, and associated preferences at any time. Deleting your data will permanently remove your account from our Django infrastructure. To request deletion, contact us using the details below.
 
 ## 7. Data Security
-All data transmitted between your browser, our backend servers, and our third-party AI providers is encrypted in transit using industry-standard HTTPS/TLS. Our servers utilize encryption at rest to protect your authentication state and preferences.
+All data transmitted between your browser, our backend, and third-party APIs is encrypted using industry-standard HTTPS/TLS.
 
----
-
-## Contact Us
-If you have any questions, concerns, or wish to submit a data deletion request, please contact the developer at:
-* **Email:** shushant19102000@gmail.com
-* **Website:** [https://www.shushant.me](https://www.shushant.me)
+**Contact Us**
+Email: shushant19102000@gmail.com
+Website: https://www.shushant.me
